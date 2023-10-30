@@ -371,12 +371,8 @@ class _EpubViewState extends State<EpubView> {
   }
 
   Widget _buildLoaded(BuildContext context) {
-    return ScrollablePositionedList.builder(
-      shrinkWrap: widget.shrinkWrap,
-      initialScrollIndex: _epubCfiReader!.paragraphIndexByCfiFragment ?? 0,
+    return PageView.builder(
       itemCount: _paragraphs.length,
-      itemScrollController: _itemScrollController,
-      itemPositionsListener: _itemPositionListener,
       itemBuilder: (BuildContext context, int index) {
         return widget.builders.chapterBuilder(
           context,
@@ -445,3 +441,4 @@ class _EpubViewState extends State<EpubView> {
     );
   }
 }
+
